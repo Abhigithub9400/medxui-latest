@@ -1,0 +1,38 @@
+.offline-error {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  z-index: 10000; /* Ensure it stays above other components */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 540px;
+  height: 59px;
+  flex-shrink: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 21px;
+  cursor: pointer;
+  margin-left: 36px;
+}
+.text-color-white {
+  color: white;
+}
+.text-message {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  margin-left: 20px;
+}
+.offline-icon {
+  margin-left: 10px;
+}

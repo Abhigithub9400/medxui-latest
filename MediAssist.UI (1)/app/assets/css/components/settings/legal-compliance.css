@@ -1,0 +1,75 @@
+.legalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  align-self: stretch;
+  width: 100%;
+  height: 540px;
+}
+
+.legal-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 29px;
+  color: #1c1c1c;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.copyRightFrame {
+  display: flex;
+  padding: 10px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid #e3e9f1;
+}
+
+.copyRightTitle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--Colors-Text-Colors-Text-Primary, #1c1c1c);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+}
+
+.copyRightText {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--Colors-Text-Colors-Text-Primary, #1c1c1c);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.privacy,
+.terms {
+  color: #0066d4;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.privacy {
+  padding-left: 5px;
+}
+
+.andText {
+  color: #323233;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}

@@ -1,0 +1,134 @@
+.modal {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 21, 21, 0.767);
+}
+
+.modal-content-contact {
+  width: 450px;
+  padding: 40px;
+  border-radius: 17px;
+  background: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.content {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group input,
+textarea {
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #b6b4b2;
+  margin-top: 4px;
+}
+
+.error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.phone-container {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  padding: 12px;
+  border: 1px solid #b6b4b2;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.phone-number {
+  width: 100%;
+}
+
+.requirements-input {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-button {
+  margin-top: 20px;
+  width: 100%;
+  height: 48px;
+  background-color: linear-gradient(274.4deg, #0066d4 2.36%, #00356e 97.81%);
+  border: 0.98px solid;
+  border-image-source: linear-gradient(
+    274.1deg,
+    #093c77 0%,
+    #60a5f2 24.4%,
+    #407dc1 67.36%,
+    #60a5f2 97.62%
+  );
+  color: #fff;
+  border-radius: 8px;
+}
+
+.submit-button:hover {
+  background: #005bb5;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #005bb5;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.mail-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.mail-icon {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.message-text {
+  font-size: 16px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close:hover {
+  color: black;
+}
+
+.required {
+  color: red;
+}

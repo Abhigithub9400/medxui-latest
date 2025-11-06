@@ -1,0 +1,83 @@
+.diagnosis-popup {
+  position: absolute;
+  top: 375px;
+  right: 80px;
+  width: 250px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px dodgerblue;
+  padding-bottom: 10px;
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.diagnosis-icon {
+  background: #e5f1fb;
+  width: 250px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.diagnosis-tooltip-text {
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center;
+  font-size: smaller;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.popup-icon {
+  width: 200px;
+  height: 120px;
+}
+
+.popup-button {
+  padding: 8px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  left: 70px;
+}
+
+.popup-button:hover {
+  background: #0056b3;
+}
+
+.down-arrow {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  bottom: -16px;
+  right: 10px;
+  width: 25px;
+  height: 15px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

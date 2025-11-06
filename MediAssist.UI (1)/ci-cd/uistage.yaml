@@ -1,0 +1,62 @@
+trigger: none
+
+pool:
+  name: 'MEDI'
+
+variables:
+- group: mediclientui-stage
+- name: variableConfiguration
+
+stages:
+# - stage: "QualityTest"
+#   jobs:
+#   - job: Scanning
+#     displayName: SonarQube
+#     timeoutInMinutes: 360
+#     cancelTimeoutInMinutes: 5
+#     steps:
+#      - task: SonarQubePrepare@7
+#        inputs:
+#          SonarQube: 'Sonarqube-API'
+#          scannerMode: 'CLI'
+#          configMode: 'manual'
+#          cliProjectKey: 'Mediui-stage'
+#          cliProjectName: 'Mediui-stage'
+#          cliSources: '.'
+#          extraProperties: |
+#            sonar.branch.name=$(Build.SourceBranchName)
+#        continueOnError: true
+
+#      - task: SonarQubeAnalyze@7
+#        continueOnError: true
+
+#      - task: SonarQubePublish@7
+#        inputs:
+#          pollingTimeoutSec: '300'
+#        continueOnError: true
+
+#      - task: sonar-buildbreaker@8
+#        inputs:
+#          SonarQube: 'Sonarqube-API'
+#        continueOnError: true
+
+- stage: "Build_Stage"
+  jobs:
+  - job: Build
+    displayName: Build
+    timeoutInMinutes: 360
+    cancelTimeoutInMinutes: 5
+    steps:
+     - task: Docker@2
+       inputs:
+         containerRegistry: 'docker _Pits'
+         repository: '$(dockerrepo)'
+         command: 'build'
+         Dockerfile: '**/dockerfile'
+         
+         
+     - task: Docker@2
+       inputs:
+         containerRegistry: 'docker _Pits'
+         repository: '$(dockerrepo)'
+         command: 'push'

@@ -1,0 +1,188 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 150px;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.docInfo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.docInfo-title {
+  color: #1c1c1c;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.fieldTexts {
+  color: var(--Text-light, #5a5a5a);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.mandatorySymbol {
+  color: #fd1414;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+.signatureBox {
+  width: 352.475px;
+  height: 160px;
+  flex-shrink: 0;
+  border-radius: 3.168px;
+  border: 0.792px dashed rgba(0, 102, 212, 0.3);
+  background: #eef6ff;
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.uploadIcon {
+  margin-top: 30px;
+  margin-left: 139px;
+}
+
+.dragAndDrop {
+  padding: 3.96px;
+  color: #0f0f0f;
+  font-size: 12.673px;
+  font-weight: 700;
+  margin-left: 80px;
+}
+
+.browseText {
+  color: #0066d4;
+  font-size: 12.673px;
+  font-weight: 700;
+  line-height: 19.01px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  cursor: pointer;
+}
+
+.supportedText {
+  padding: 3.96px;
+  color: #676767;
+  font-size: 9.505px;
+  font-weight: 400;
+  line-height: 14.257px;
+  margin-left: 92px;
+}
+
+.imagePreview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.previewImage {
+  border-radius: 3px;
+  width: 352.475px;
+  height: 160px;
+  object-fit: fill;
+}
+
+.delete-icon {
+  position: absolute;
+  left: 705px;
+  top: 163px;
+  cursor: pointer;
+}
+
+.trashIcon {
+  width: 89px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+.inputTextBoxes {
+  width: 332.48px;
+  height: 25px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  padding: 10px;
+  outline: none;
+}
+
+.nameField {
+  padding-top: 10px;
+}
+
+.medicalCredSpecGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.medCredDropDownBox {
+  width: 354.08px;
+  height: 46.6px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  padding: 10px;
+  outline: none;
+}
+
+.btnSession {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 80px;
+  gap: 830px;
+}
+
+.cancel-btn {
+  display: flex;
+  height: 42px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: var(--bg-white, #fff);
+  cursor: pointer;
+}
+
+.save-btn {
+  display: flex;
+  height: 42px;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: var(--Primary-Colors, #0066d4);
+  cursor: pointer;
+  border: none;
+  color: var(--Text-Text-white, #fff);
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+}
+
+.error-image-upload {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+}

@@ -1,0 +1,126 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: $(namespace)
+  name: $(proj_branch)
+  labels:
+    app: $(proj_branch)
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000  # Changed to match Nuxt's port
+      protocol: TCP
+  selector:
+    app: $(proj_branch)
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: $(namespace)
+  labels:
+    app: $(proj_branch)
+  name: $(proj_branch)
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: $(proj_branch)
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: $(proj_branch)
+    spec:
+      containers:
+        - image: docker-registry.dev.displayme.net/$(dockerrepo)
+          imagePullPolicy: Always  # Changed to Always for better updates
+          name: $(proj_branch)
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          env:
+            - name: NUXT_PUBLIC_API_BASE_URL
+              value: 'https://api-medi-stage.mypits.org'
+            - name: NUXT_PUBLIC_WEBSITE_URL
+              value: 'https://medx.dev.displayme.net'
+            - name: NUXT_PUBLIC_WEB_SOCKET_URL
+              value: 'wss://api-medi-stage.mypits.org'
+            - name: NITRO_HOST
+              value: "0.0.0.0"
+            - name: NITRO_PORT
+              value: "3000"
+            - name: NODE_ENV
+              value: "production"
+            - name: NUXT_API_SECRET
+              value: "123"
+          
+          # Health checks
+#           livenessProbe:
+#             httpGet:
+#               path: /
+#               port: 3000
+#             initialDelaySeconds: 30
+#             periodSeconds: 10
+#             timeoutSeconds: 5
+#             failureThreshold: 3
+          
+#           readinessProbe:
+#             httpGet:
+#               path: /
+#               port: 3000
+#             initialDelaySeconds: 10
+#             periodSeconds: 5
+#             timeoutSeconds: 3
+#             failureThreshold: 3
+          
+#           # Resource limits (adjust based on your needs)
+#           resources:
+#             requests:
+#               memory: "256Mi"
+#               cpu: "100m"
+#             limits:
+#               memory: "512Mi"
+#               cpu: "500m"
+      
+#       # Image pull secrets if your registry requires auth
+#       imagePullSecrets:
+#         - name: docker-registry-secret
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: $(namespace)
+  name: $(proj_branch)
+  annotations:
+    # Basic Traefik config
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    
+    # CRITICAL: Don't buffer responses
+    traefik.ingress.kubernetes.io/buffering: "false"
+    
+    # Pass through content types unchanged
+    traefik.ingress.kubernetes.io/pass-tls-client-cert: "false"
+    
+    # Increase timeouts
+    traefik.ingress.kubernetes.io/response-forwarding-timeout: "60s"
+    
+spec:
+  ingressClassName: traefik-nodeport
+  rules:
+    - host: $(site_url)
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: $(proj_branch)
+                port:
+                  number: 80

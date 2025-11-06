@@ -1,0 +1,91 @@
+.patient-card {
+  margin: 20px 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.patient-name-card {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border: 1px solid var(--Border-50, #efefef);
+  background-color: white;
+}
+.patient-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doctor-name {
+  margin: 0;
+  color: #1c1c1c;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.patient-details {
+  display: flex;
+  gap: 100px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  color: var(--Text-light, #5a5a5a);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.value {
+  color: var(--Colors-Text-Colors-Text-Primary, #1c1c1c);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.go-back-icon {
+  width: 7.5px;
+  height: 15.5px;
+  flex-shrink: 0;
+  fill: var(--Icon-primary, #333);
+  border: none;
+  background: none;
+}
+
+.go-back-icon:hover {
+  filter: brightness(0) saturate(100%);
+  transform: translateY(-1px);
+  transition: transform 0.15s ease-out;
+}
+
+.consult-btn .launch-button {
+  background-color: #0066d4;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.consult-btn .launch-button:hover {
+  background-color: #005bb5;
+}

@@ -1,0 +1,96 @@
+.sidebar {
+  width: 80px;
+  background-color: #0a2144;
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.settings {
+  margin: 50% 0;
+}
+
+.logo-icon {
+  width: 43.05px;
+  height: 54.68px;
+  gap: 0px;
+}
+
+.logo-icon:hover {
+  transform: translateY(-1px);
+}
+
+.icon {
+  width: 28.29px;
+  height: 23.57px;
+}
+
+.home_icon {
+  fill: none;
+}
+.home_icon :hover {
+  fill: #0066d4;
+}
+.settings-icon {
+  fill: none;
+}
+
+.settings-icon :hover {
+  fill: #0066d4;
+}
+
+.subscription_icon {
+  fill: none;
+}
+
+.subscription_icon :hover {
+  fill: #0066d4;
+}
+
+.user_icon{
+  fill: none;
+}
+.user_icon :hover {
+  fill: #0066d4;
+}
+
+.active-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  padding: 8px;
+  color: #a0aec0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.active-link.router-link-active {
+  background: #0066d4;
+}
+
+.active-link.router-link-active .home_icon path {
+  fill: white;
+}
+.active-link.router-link-active .settings-icon path {
+  fill: white;
+}
+.active-link.router-link-active .subscription_icon path {
+  fill: white;
+}
+
+.active-link.router-link-active .user_icon path {
+  fill: white;
+}

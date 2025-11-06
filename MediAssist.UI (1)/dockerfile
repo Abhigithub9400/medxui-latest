@@ -1,0 +1,35 @@
+FROM node:18-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+# Verify build
+RUN ls -la .output/public/_nuxt/ || echo "ERROR: No _nuxt folder!"
+
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/.output /app/.output
+
+# Verify files copied
+RUN ls -la /app/.output/public/_nuxt/ || echo "ERROR: Assets not copied!"
+
+ENV NITRO_HOST=0.0.0.0
+ENV NITRO_PORT=3000
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nuxt -u 1001 && \
+    chown -R nuxt:nodejs /app
+
+USER nuxt
+
+CMD ["node", ".output/server/index.mjs"]

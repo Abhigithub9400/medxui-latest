@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@400;500&display=swap");
+
+.privacy-page {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(0deg, #050613 0%, #051b2f 100%);
+}
+.privacy-header {
+  width: 100%;
+  height: 230px;
+}
+.privacy-text {
+  color: #ffffff;
+  letter-spacing: 0;
+  margin-inline: auto;
+  width: 1277px;
+}
+.privacy-frame {
+  align-items: flex-start;
+  background-color: #f7fbff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 60px 120px;
+  position: relative;
+}
+.privacy-frame-wrapper {
+  align-items: center;
+  align-self: stretch;
+  background-color: #ffffff;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  margin-inline: auto;
+  width: 1277px;
+}
+
+.logo {
+    margin-left: 40px;
+  }
+
+.privacy-div {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 25px;
+  position: relative;
+}
+.privacy-text-wrapper {
+  align-self: stretch;
+  color: #1c1c1c;
+  letter-spacing: 0;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  position: relative;
+}
+.privacy-div-2 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.privacy-text-wrapper-2 {
+  align-self: stretch;
+  color: #1c1c1c;
+  letter-spacing: 0;
+  margin-top: -1px;
+  position: relative;
+}
+
+.privacy-p {
+  align-self: stretch;
+  color: #1c1c1c;
+  letter-spacing: 0;
+  position: relative;
+}
+
+.privacy-p a {
+  color: #0066d4;
+  text-decoration-line: underline;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+}
