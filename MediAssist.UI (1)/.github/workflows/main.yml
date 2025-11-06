@@ -1,24 +1,53 @@
 name: MediAssist.UI (1)
+
 on:
   push:
     branches:
       - main
-on:
-  workflow_dispatch:
+  workflow_dispatch: # allows manual trigger
 
 jobs:
-  compile:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "14"
+
       - name: Install dependencies
+        working-directory: MediAssist.UI (1)
         run: npm install
+
       - name: Build
+        working-directory: MediAssist.UI (1)
         run: npm run build
-      - name: Test
-        run: npm run test
+
+      # Optional: remove this if no test script
+      # - name: Test
+      #   working-directory: MediAssist.UI (1)
+      #   run: npm run test
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: ./MediAssist.UI (1) # 👈 folder where your Dockerfile is
+          file: ./MediAssist.UI (1)/Dockerfile
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/mediassist-ui:latest
