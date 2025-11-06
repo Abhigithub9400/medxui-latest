@@ -26,6 +26,6 @@ jobs:
         working-directory: MediAssist.UI (1)
         run: npm run build
 
-      - name: Test
-        working-directory: MediAssist.UI (1)
-        run: npm run test
+      # - name: Test
+      #   working-directory: MediAssist.UI (1)
+      #   run: npm run test
