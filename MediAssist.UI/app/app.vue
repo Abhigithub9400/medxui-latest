@@ -34,17 +34,18 @@ onMounted(async () => {
   window.addEventListener("offline", updateNetworkStatus);
 });
 
-onUnmounted(() => {
-  window.removeEventListener("online", updateNetworkStatus);
-  window.removeEventListener("offline", updateNetworkStatus);
-});
-
-watch(isOffline, (newVal) => {
+const stopWatch = watch(isOffline, (newVal) => {
   if (newVal) {
     document.body.classList.add("no-scroll");
   } else {
     document.body.classList.remove("no-scroll");
   }
+});
+
+onUnmounted(() => {
+  window.removeEventListener("online", updateNetworkStatus);
+  window.removeEventListener("offline", updateNetworkStatus);
+  stopWatch();
 });
 </script>
 
